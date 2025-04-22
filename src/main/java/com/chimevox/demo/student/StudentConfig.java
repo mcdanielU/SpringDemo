@@ -24,21 +24,21 @@ public class StudentConfig implements CommandLineRunner{
     public void run(String... args) throws Exception {
         if(studentRepository.count() == 0)
         {
-            Student mariam = new Student( 1L,
+            Student mariam = new Student(
                     "Mariam",
                     "mariam@gmail.com",
-                    LocalDate.of(2000, Month.JANUARY, 5),
-                    21);
-            Student uche = new Student( 1L,
+                    LocalDate.of(2000, Month.JANUARY, 5)
+                   );
+            Student uche = new Student(
                     "Uche Elekwa",
                     "dautch@gmail.com",
-                    LocalDate.of(1997, Month.AUGUST, 7),
-                    27);
-            Student drake = new Student( 1L,
+                    LocalDate.of(1997, Month.AUGUST, 7)
+                  );
+            Student drake = new Student(
                     "Drizzy",
                     "drizzydrake@gmail.com",
-                    LocalDate.of(1800, Month.OCTOBER, 10),
-                    225);
+                    LocalDate.of(1800, Month.OCTOBER, 10)
+                  );
 
             studentRepository.saveAll(List.of(mariam,uche, drake));
         }

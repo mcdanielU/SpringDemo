@@ -4,6 +4,7 @@ package com.chimevox.demo.student;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 /**
  * Represents a student entity in the system.
@@ -26,13 +27,13 @@ public class Student {
 
     private LocalDate dob;
 
+    @Transient
     private  Integer age;
-    public Student(Long id, String name, String email, LocalDate dob, Integer age) {
-        this.id = id;
+    public Student(String name, String email, LocalDate dob) {
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.age = age;
+
     }
 
     public Student() {
@@ -83,7 +84,7 @@ public class Student {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     @Override
